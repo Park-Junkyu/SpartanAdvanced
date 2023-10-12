@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         stateMachine.ChangeState(stateMachine.IdlingState);
-        
     }
 
     private void Update()
