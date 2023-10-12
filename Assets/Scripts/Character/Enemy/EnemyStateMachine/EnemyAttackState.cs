@@ -13,7 +13,6 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Enter()
     {
-        Debug.Log("StartAttack");
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
@@ -22,7 +21,6 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Exit()
     {
-        Debug.Log("StopAttack");
         base.Exit();
         StopAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
         StopAnimation(stateMachine.Enemy.AnimationData.BaseAttackParameterHash);
@@ -37,7 +35,6 @@ public class EnemyAttackState : EnemyBaseState
         bool IsAttack = IsInChaseRange();
         // normalizedTime¿« πÆ¡¶!
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
-        Debug.Log(normalizedTime);
         if (normalizedTime < 1f)
         {
             if (normalizedTime >= stateMachine.Enemy.Data.ForceTransitionTime)
@@ -45,7 +42,6 @@ public class EnemyAttackState : EnemyBaseState
         }
         else
         {
-            Debug.Log("  ");
             if (IsAttack)
             {
                 stateMachine.ChangeState(stateMachine.ChasingState);
