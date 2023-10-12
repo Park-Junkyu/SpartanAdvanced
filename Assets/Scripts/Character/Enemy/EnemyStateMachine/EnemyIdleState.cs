@@ -10,7 +10,6 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Enter()
     {
-        Debug.Log("StartIdle");
         stateMachine.MovementSpeedModifier = 0f;
 
         base.Enter();
@@ -20,7 +19,6 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Exit()
     {
-        Debug.Log("StopIdle");
 
         base.Exit();
         StopAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);
